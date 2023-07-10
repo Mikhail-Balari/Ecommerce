@@ -5,7 +5,7 @@ import { colors } from '../Global/Colors'
 const Header = () => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Header</Text>
+      <Text style={styles.headerText}>JC Distribuidora</Text>
     </View>
   )
 }
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 25,
         color: colors.secondary,
+        fontFamily: 'Roboto',
     }
 })
