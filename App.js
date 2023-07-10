@@ -32,7 +32,6 @@ export default function App() {
           setCategorySelected={setCategorySelected}
         />
       }
-      {/* <ItemListCategory/> */}
     </View>
   );
 }
