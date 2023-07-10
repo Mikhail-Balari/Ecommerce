@@ -2,18 +2,15 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../Global/Colors'
 import categories from '../Data/categories.json'
+import CategoryItem from '../Components/CategoryItem'
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.homeContainer}>
         <FlatList
             data = {categories}
             keyExtractor={category => category}
-            renderItem={({item}) => {
-                return (
-                    <Text>{item}</Text>
-                )
-            }}
+            renderItem={({item}) => CategoryItem({item})}
         />
     </View>
   )
@@ -22,8 +19,9 @@ const Home = () => {
 export default Home
 
 const styles = StyleSheet.create({
-    container: {
+    homeContainer: {
         height: '90%',
         backgroundColor: colors.primary, 
+        alignItems: 'center',
     }
 })

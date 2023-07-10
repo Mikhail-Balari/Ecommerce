@@ -4,8 +4,8 @@ import { colors } from '../Global/Colors'
 
 const Header = () => {
   return (
-    <View style={styles.containerHeader}>
-      <Text style={styles.textHeader}>Header</Text>
+    <View style={styles.headerContainer}>
+      <Text style={styles.headerText}>Header</Text>
     </View>
   )
 }
@@ -13,13 +13,13 @@ const Header = () => {
 export default Header
 
 const styles = StyleSheet.create({
-    containerHeader: {
+    headerContainer: {
         height: '10%',
         backgroundColor: colors.darkmatter,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    textHeader: {
+    headerText: {
         fontSize: 25,
         color: colors.secondary,
     }
