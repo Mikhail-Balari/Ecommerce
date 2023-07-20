@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,9 +10,12 @@ const Search = ({
     goBack
 }) => {
     const [keyword, setKeyword] = useState("")
+    const {width, height} = useWindowDimensions()
+
+    console.log(width, height)
 
   return (
-    <View style ={styles.container}>
+    <View style ={width > 350 ? styles.container : styles.containerSm}>
         <TextInput style ={styles.input} 
             placeholder='Search...'
             value={keyword}
@@ -41,6 +44,13 @@ export default Search
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '10%',
+        gap: 18,
+    },
+    containerSm: {
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         height: '10%',

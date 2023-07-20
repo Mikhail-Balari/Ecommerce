@@ -46,7 +46,7 @@ const ItemListCategory = ({
         <FlatList
             data = {products}
             keyExtractor={product => product.id}
-            renderItem={({item}) => ProductItem({item})}
+            renderItem={({item}) => <ProductItem item={item}/>}
             showsVerticalScrollIndicator={false}
         />
     </View>
