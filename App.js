@@ -5,10 +5,12 @@ import Home from './src/Screens/Home';
 import ItemListCategory from './src/Screens/ItemListCategory';
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
+import ItemDetail from './src/Screens/ItemDetail';
 
 export default function App() {
 
   const [categorySelected, setCategorySelected] = useState("")
+  const [productSelected, setProductSelected] = useState("")
 
   const [fontsLoaded] = useFonts({
     'Roboto': require('./src/Assets/Fonts/Reboto_Condensed/RobotoCondensed-Italic.ttf')
@@ -27,7 +29,10 @@ export default function App() {
         <ItemListCategory 
           category={categorySelected}
           setCategory={setCategorySelected}
+          setProductSelected={setProductSelected}
         /> :
+        productSelected ?
+        <ItemDetail/> :
         <Home
           setCategorySelected={setCategorySelected}
         />
