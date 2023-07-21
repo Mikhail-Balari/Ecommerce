@@ -6,11 +6,11 @@ import { useState } from 'react';
 import { Button } from 'react-native-web';
 
 const ItemDetail = ({
-  idSelected,
-  setProductSelected
+  navigation,
+  route
 }) => {
 
-  console.log(idSelected);
+  const {productId: idSelected} = route.params
 
   const [product, setProduct] = useState(null);
   const [orientation, setOrientation] = useState("portrait")
@@ -32,7 +32,7 @@ const ItemDetail = ({
 
   return (
     <View>
-      <Button onPress={() => setProductSelected("")} title='Go Back'/>
+      <Button onPress={() => navigation.goBack()} title='Go Back'/>
       {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape }>
           <Image 

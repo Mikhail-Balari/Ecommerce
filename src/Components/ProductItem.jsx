@@ -4,8 +4,7 @@ import Card from './Card'
 
 const ProductItem = ({
   item, 
-  setProductSelected,
-  setCategorySelected
+  navigation
 }) => {
 
   const {height, width} = useWindowDimensions()
@@ -13,8 +12,7 @@ const ProductItem = ({
   console.log(height, width)
 
   const onSelect = (id) => {
-    setProductSelected(id)
-    setCategorySelected("")
+    navigation.navigate('Detail', {productId: item.id} )
   }
 
   return (

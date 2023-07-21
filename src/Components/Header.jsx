@@ -14,10 +14,10 @@ export default Header
 
 const styles = StyleSheet.create({
     headerContainer: {
-        height: '10%',
         backgroundColor: colors.darkmatter,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingVertical: 15,
     },
     headerText: {
         fontSize: 25,
