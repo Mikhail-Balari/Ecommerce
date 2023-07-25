@@ -36,7 +36,7 @@ const ItemDetail = ({
       {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape }>
           <Image 
-            source={{uri: product.images}} 
+            source={{uri: product.images[0]}} 
             style={styles.images}
             resizeMode='cover'
           />
