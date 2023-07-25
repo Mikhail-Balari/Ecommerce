@@ -4,10 +4,15 @@ import { colors } from '../Global/Colors'
 import { Ionicons } from '@expo/vector-icons';
 
 const Header = ({route, navigation}) => {
-  
+
+  let title
+  if (route.name === 'Home') title = 'JC Distribuidora'
+  if (route.name === 'ItemListCategory') title = route.params.category
+  if (route.name === 'Detail') title = route.params.title
+
   return (
     <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>JC Distribuidora</Text>
+        <Text style={styles.headerText}>{title}</Text>
         {route.name !== "Home" ? (
           <Pressable style={styles.pressable} onPress={() => navigation.goBack()}>
             <Ionicons name="return-up-back" size={24} color="orange" />

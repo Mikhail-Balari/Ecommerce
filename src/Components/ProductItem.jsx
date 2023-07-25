@@ -12,7 +12,7 @@ const ProductItem = ({
   console.log(height, width)
 
   const onSelect = (id) => {
-    navigation.navigate('Detail', {productId: item.id} )
+    navigation.navigate('Detail', {productId: item.id, title: item.title} )
   }
 
   return (
