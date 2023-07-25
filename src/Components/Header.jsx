@@ -3,13 +3,16 @@ import React from 'react'
 import { colors } from '../Global/Colors'
 import { Ionicons } from '@expo/vector-icons';
 
-const Header = () => {
+const Header = ({route, navigation}) => {
+  
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>JC Distribuidora</Text>
-      <Pressable style={styles.pressable} onPress={() => {}}>
-        <Ionicons name="return-up-back" size={24} color="orange" />
-      </Pressable>
+        <Text style={styles.headerText}>JC Distribuidora</Text>
+        {route.name !== "Home" ? (
+          <Pressable style={styles.pressable} onPress={() => navigation.goBack()}>
+            <Ionicons name="return-up-back" size={24} color="orange" />
+          </Pressable> 
+        ) : null}
     </View>
   )
 }
