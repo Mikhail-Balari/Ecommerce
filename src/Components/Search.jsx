@@ -12,7 +12,10 @@ const Search = ({
     const [keyword, setKeyword] = useState("")
     const {width, height} = useWindowDimensions()
 
-    console.log(width, height)
+    const onErase = () => {
+        setKeyword("")
+        onSearch("")
+    }
 
   return (
     <View style ={width > 350 ? styles.container : styles.containerSm}>
@@ -24,7 +27,7 @@ const Search = ({
         <Pressable onPress={()=>onSearch(keyword)}>
             <AntDesign name="search1" size={24} color="black" />
         </Pressable>
-        <Pressable onPress={()=> setKeyword("")}>
+        <Pressable onPress={onErase}>
             <Ionicons name="md-backspace-sharp" size={24} color="black" />
         </Pressable>
         <Pressable onPress={goBack}>
