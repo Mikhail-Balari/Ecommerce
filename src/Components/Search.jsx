@@ -30,9 +30,6 @@ const Search = ({
         <Pressable onPress={onErase}>
             <Ionicons name="md-backspace-sharp" size={24} color="black" />
         </Pressable>
-        <Pressable onPress={goBack}>
-        <Ionicons name="return-up-back" size={24} color="black" />
-        </Pressable>
        { error ?
          <Text>
             {error}

@@ -32,7 +32,6 @@ const ItemDetail = ({
 
   return (
     <View>
-      <Button onPress={() => navigation.goBack()} title='Go Back'/>
       {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape }>
           <Image 

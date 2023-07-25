@@ -1,4 +1,4 @@
-import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
+import { Platform, Pressable, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
 import React from 'react'
 import Header from '../Components/Header'
 import ItemListCategory from '../Screens/ItemListCategory'
@@ -6,6 +6,7 @@ import ItemDetail from '../Screens/ItemDetail'
 import Home from '../Screens/Home'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
 
 
 const Stack = createNativeStackNavigator()
