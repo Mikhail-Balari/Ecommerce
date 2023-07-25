@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, StyleSheet, View, StatusBar} from 'react-native'
 import React from 'react'
 import { colors } from '../Global/Colors'
 import categories from '../Data/categories.json'
@@ -7,12 +7,13 @@ import CategoryItem from '../Components/CategoryItem'
 const Home = ({navigation}) => {
   return (
     <View style={styles.homeContainer}>
-        <FlatList
-            data = {categories}
-            keyExtractor={category => category}
-            renderItem={({item}) => <CategoryItem item={item} navigation={navigation}/>}
-            showsVerticalScrollIndicator={false}
-        />
+      <StatusBar/>
+      <FlatList
+          data = {categories}
+          keyExtractor={category => category}
+          renderItem={({item}) => <CategoryItem item={item} navigation={navigation}/>}
+          showsVerticalScrollIndicator={false}
+      />
     </View>
   )
 }
