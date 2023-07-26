@@ -13,9 +13,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 
-
-
-
 const Navigator = () => {
   return (
     <SafeAreaView style = {styles.container}>
@@ -34,7 +31,7 @@ const Navigator = () => {
                         tabBarIcon: ({focused}) => {
                             return (
                                 <View>
-                                    <Entypo name="shop" size={24} color={focused ? colors.primary : colors.coffee} />
+                                    <Entypo name="shop" size={30} color={focused ? colors.primary : colors.coffee} />
                                 </View>
                             )
                         }
@@ -47,7 +44,7 @@ const Navigator = () => {
                         tabBarIcon: ({focused}) => {
                             return (
                                 <View>
-                                    <MaterialCommunityIcons name="cart-arrow-right" size={24} color={focused ? colors.primary : colors.coffee} />
+                                    <MaterialCommunityIcons name="cart-arrow-right" size={30} color={focused ? colors.primary : colors.coffee} />
                                 </View>
                             )
                         }
