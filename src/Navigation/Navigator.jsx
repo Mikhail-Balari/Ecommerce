@@ -9,6 +9,7 @@ import { colors } from '../Global/Colors'
 import { View } from 'react-native-web'
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import OrderStack from './OrderStack'
 
 
 const Tab = createBottomTabNavigator()
@@ -45,6 +46,19 @@ const Navigator = () => {
                             return (
                                 <View>
                                     <MaterialCommunityIcons name="cart-arrow-right" size={30} color={focused ? colors.primary : colors.coffee} />
+                                </View>
+                            )
+                        }
+                    }}
+                />
+                <Tab.Screen
+                    name = 'Orders'
+                    component={OrderStack}
+                    options={{
+                        tabBarIcon: ({focused}) => {
+                            return (
+                                <View>
+                                    <MaterialCommunityIcons name="playlist-check" size={30} color={focused ? colors.primary : colors.coffee} />
                                 </View>
                             )
                         }

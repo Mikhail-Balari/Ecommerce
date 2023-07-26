@@ -5,8 +5,7 @@ import { colors } from "../Global/Colors";
 
 const OrderItem = ({ order }) => {
     const total = order.items.reduce(
-        (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),
-        0
+        (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),0
     );
 
     return (
