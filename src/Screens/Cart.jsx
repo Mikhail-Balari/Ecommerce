@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, View, Text } from 'react-native'
 import CartData from '../Data/cart.json'
 import CartItem from '../Components/CartItem'
 import { FlatList } from 'react-native-web'
+import { colors } from '../Global/Colors'
 
 const Cart = () => {
 
@@ -40,11 +41,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flex: 1,
         marginBottom: 120,
+        backgroundColor: colors.primary
     },
     totalContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        fontFamily: 'Roboto'
+        fontFamily: 'Roboto',
     }
 })

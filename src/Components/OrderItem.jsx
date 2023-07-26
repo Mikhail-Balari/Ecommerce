@@ -3,6 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { colors } from "../Global/Colors";
 
+
 const OrderItem = ({ order }) => {
     const total = order.items.reduce(
         (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),0
@@ -16,7 +17,7 @@ const OrderItem = ({ order }) => {
                 </Text>
                 <Text style={styles.text2}>${total}</Text>
             </View>
-            <Feather name="search" size={30} color="black" />
+            <Feather name="search" size={30} color={colors.darkmatter} />
         </View>
     );
 };
@@ -26,7 +27,7 @@ export default OrderItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.darkmatter,
+        backgroundColor: colors.primary,
         padding: 10,
         margin: 10,
         borderWidth: 2,
@@ -43,12 +44,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: "Roboto",
-        fontSize: 17,
-        color: "black",
+        fontSize: 20,
+        color: colors.darkmatter,
     },
     text2: {
         fontFamily: "Roboto",
-        fontSize: 19,
-        color: "gray",
+        fontSize: 22,
+        color: colors.darkmatter,
     },
 });
