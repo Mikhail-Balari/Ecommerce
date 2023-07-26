@@ -16,7 +16,7 @@ const Header = ({route, navigation}) => {
         <Text style={styles.headerText}>{title}</Text>
         {route.name !== "Home" ? (
           <Pressable style={styles.pressable} onPress={() => navigation.goBack()}>
-            <Ionicons name="return-up-back" size={24} color="orange" />
+            <Ionicons name="arrow-back-circle-sharp" size={35} color={colors.primary} />
           </Pressable> 
         ) : null}
     </View>
@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
     pressable: {
       position: 'absolute',
       left: 30,
-      top: '50%',
+      top: '25%',
     }
 })
