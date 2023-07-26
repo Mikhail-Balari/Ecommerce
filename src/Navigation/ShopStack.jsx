@@ -17,10 +17,7 @@ const ShopStack = () => {
             ({route, navigation}) => (
                 {
                     header: () => {
-                        return <Header
-                            route = {route}
-                            navigation = {navigation}
-                        />
+                        return <Header route = {route} navigation = {navigation} />
                     },
                 }
             )
