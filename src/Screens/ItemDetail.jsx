@@ -29,7 +29,7 @@ const ItemDetail = ({
     setProduct(productSelected)
   }, [idSelected])
 
-  const ondAddCart = () => {
+  const onAddCart = () => {
     dispatch(addCartItem({...product, quantity: 1}))
   }
 
@@ -48,7 +48,7 @@ const ItemDetail = ({
             <Text>${product.price}</Text>
             <Button 
               title='Agregar' 
-              onPress={ondAddCart}>
+              onPress={onAddCart}>
             </Button>
           </View>
         </View> 
