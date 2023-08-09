@@ -4,13 +4,16 @@ import { useEffect } from 'react';
 import allProducts from '../Data/products.json'
 import { useState } from 'react';
 import { Button } from 'react-native-web';
-
+import { useDispatch } from 'react-redux';
+import { addCartItem } from '../Features/Cart/cartSlice';
 const ItemDetail = ({
   navigation,
   route
 }) => {
 
   const {productId: idSelected} = route.params
+
+  const dispatch = useDispatch()
 
   const [product, setProduct] = useState(null);
   const [orientation, setOrientation] = useState("portrait")
@@ -21,14 +24,14 @@ const ItemDetail = ({
     else setOrientation("portrait")
   }, [width, height])
 
-  console.log(orientation)
-
   useEffect(() => {
     const productSelected = allProducts.find(product => product.id === idSelected)
     setProduct(productSelected)
   }, [idSelected])
 
-  console.log(product)
+  const ondAddCart = () => {
+    dispatch(addCartItem({...product, quantity: 1}))
+  }
 
   return (
     <View>
@@ -43,7 +46,10 @@ const ItemDetail = ({
             <Text>{product.title}</Text>
             <Text>{product.description}</Text>
             <Text>${product.price}</Text>
-            <Button title='Agregar'/>
+            <Button 
+              title='Agregar' 
+              onPress={ondAddCart}>
+            </Button>
           </View>
         </View> 
       ) : null}

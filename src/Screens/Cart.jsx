@@ -1,14 +1,12 @@
 import { Pressable, StyleSheet, View, Text } from 'react-native'
-import CartData from '../Data/cart.json'
 import CartItem from '../Components/CartItem'
 import { FlatList } from 'react-native-web'
 import { colors } from '../Global/Colors'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
 
-    const total = CartData.reduce(
-        (acumulador, currentItem) => (acumulador += currentItem.price * currentItem.quantity),0
-    );
+    const {items: CartData, total} = useSelector(state => state.cartReducer.value)
 
   return (
     <View style={styles.container}>
