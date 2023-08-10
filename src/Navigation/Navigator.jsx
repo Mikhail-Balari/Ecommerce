@@ -8,10 +8,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { colors } from '../Global/Colors'
 import { View } from 'react-native-web'
 import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import OrderStack from './OrderStack'
 import AuthStack from './AuthStack'
 import { useSelector } from 'react-redux'
+import MyProfileStack from './MyProfileStack'
 
 
 const Tab = createBottomTabNavigator()
@@ -66,6 +68,23 @@ const Navigator = () => {
                             return (
                                 <View>
                                     <MaterialCommunityIcons name="playlist-check" size={30} color={focused ? colors.primary : colors.coffee} />
+                                </View>
+                            )
+                        }
+                    }}
+                />
+                <Tab.Screen
+                    name = 'MyProfile'
+                    component={MyProfileStack}
+                    options={{
+                        tabBarIcon: ({focused}) => {
+                            return (
+                                <View style={styles.item}>
+                                    <Ionicons 
+                                        name="person-circle-outline" 
+                                        size={24} 
+                                        color={focused ? colors.primary : colors.coffee} 
+                                    />
                                 </View>
                             )
                         }
