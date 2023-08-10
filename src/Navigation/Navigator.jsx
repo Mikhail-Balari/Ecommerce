@@ -28,12 +28,12 @@ const Navigator = () => {
            {    
                 email ?
                 <Tab.Navigator
-                screenOptions={{
-                    headerShown: false,
-                    tabBarShowLabel: false,
-                    tabBarStyle: styles.tabBar,
-                }}
-            >
+                    screenOptions={{
+                        headerShown: false,
+                        tabBarShowLabel: false,
+                        tabBarStyle: styles.tabBar,
+                    }}
+                >
                 <Tab.Screen
                     name = 'Shop'
                     component={ShopStack}
