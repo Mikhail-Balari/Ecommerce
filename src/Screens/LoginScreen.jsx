@@ -29,7 +29,9 @@ const LoginScreen = ({navigation}) => {
             dispatch(
                 setUser({
                     email: resultSignIn.data.email,
-                    idToken: resultSignIn.data.idToken
+                    idToken: resultSignIn.data.idToken,
+                    localId: resultSignIn.data.localId,
+                    profileImage: ""
                 })
             )
         }
