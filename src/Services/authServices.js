@@ -12,7 +12,6 @@ export const authApi = createApi({
                 body: auth
             })
         }),
-        //armado
         signIn: builder.mutation({
             query: (auth) => ({
                 url: `/accounts:signInWithPassword?key=${api_key}`,
@@ -20,7 +19,6 @@ export const authApi = createApi({
                 body: auth
             })
         })
-        //hasta aca llega
     })
 })
 

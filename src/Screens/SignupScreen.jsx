@@ -74,7 +74,11 @@ const SignupScreen = ({ navigation }) => {
         <View style={styles.main}>
             <View style={styles.container}>
                 <Text style={styles.title}>Signup</Text>
-                <InputForm label={"email"} onChange={setEmail} error={errorMail} />
+                <InputForm 
+                    label={"email"} 
+                    onChange={setEmail} 
+                    error={errorMail} 
+                />
                 <InputForm
                     label={"password"}
                     onChange={setPassword}
@@ -87,11 +91,16 @@ const SignupScreen = ({ navigation }) => {
                     error={errorConfirmPassword}
                     isSecure={true}
                 />
-                <SubmitButton onPress={onSubmit} title="Send" />
+                <SubmitButton 
+                    onPress={onSubmit} 
+                    title="Send" 
+                />
                 <Text style={styles.sub}>Already have an account?</Text>
-                <Pressable onPress={() => navigation.navigate("Login")}>
-                    <Text style={styles.subLink}>Login</Text>
-                </Pressable>
+                <View style={[styles.buttonContainer, { borderColor: colors.secondary }]}>
+                    <Pressable onPress={() => navigation.navigate("Login")} style={styles.button}>
+                        <Text style={styles.subLink}>Login</Text>
+                    </Pressable>
+                </View>
             </View>
         </View>
     );
@@ -125,8 +134,23 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: "Roboto",
         color: colors.secondary,
+        padding: 20,
+    },
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        borderColor: 'transparent', 
+        borderWidth: 2,  
+        width: '20%',
+    },
+    button: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 8,
     },
     subLink: {
+        fontFamily: "Roboto",
         fontSize: 14,
         color: colors.primary,
     },

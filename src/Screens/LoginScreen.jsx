@@ -3,7 +3,6 @@ import React from 'react'
 import InputForm from '../Components/InputForm'
 import SubmitButton from '../Components/SubmitButton'
 import { colors } from '../Global/Colors'
-//agregado
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -12,46 +11,43 @@ import { isAtLeastSixCharacters, isValidEmail } from '../Validations/auth'
 import { setUser } from '../Features/User/userSlice'
 
 const LoginScreen = ({navigation}) => {
-
-    //pegado
+    
     const [email, setEmail] = useState("");
-    const [errorMail, setErrorMail] = useState("");
     const [password, setPassword] = useState("");
+    
+    const [errorMail, setErrorMail] = useState("");
     const [errorPassword, setErrorPassword] = useState("")
-
-    const [triggerSignIn, result] = useSignInMutation()
+    
     const dispatch = useDispatch()
 
-    console.log(result);
+    const [triggerSignIn, resultSignIn] = useSignInMutation()
+
+    console.log(resultSignIn);
 
     useEffect(()=> {
-      if (result.isSuccess) {
+      if (resultSignIn.isSuccess) {
             dispatch(
                 setUser({
-                    email: result.data.email,
-                    idToken: result.data.idToken
+                    email: resultSignIn.data.email,
+                    idToken: resultSignIn.data.idToken
                 })
             )
         }
-    }, [result])
-    //hasta aca llega
-
+    }, [resultSignIn])
+   
     const onSubmit = () => {
-        //pegado
+        
         try {
-            
             //Submit logic with validations
             const isValidVariableEmail = isValidEmail(email)
             const isCorrectPassword = isAtLeastSixCharacters(password)
             
-
             if (isValidVariableEmail && isCorrectPassword) {
-                const request = {
+                triggerSignIn({
                     email,
                     password,
-                    returnSecureToken: true
-                }
-                triggerSignIn(request)
+                    returnSecureToken: true,
+                })
             }
 
             if (!isValidVariableEmail) setErrorMail ('Email is not correct')
@@ -60,13 +56,12 @@ const LoginScreen = ({navigation}) => {
             if (!isCorrectPassword) setErrorPassword ('Password must be at least 6 characters')
             else setErrorPassword('')
             
-
         } catch (err) {
             console.log("Catch error");
             console.log(err.message);
         }
-        //hasta aca llega
     }
+
   return (
     <View style={styles.main}>
         <View style={styles.container}>
@@ -87,9 +82,11 @@ const LoginScreen = ({navigation}) => {
                 title = "Send"
             />
             <Text style={styles.sub}>Not have an account?</Text>
-            <Pressable onPress={()=> navigation.navigate('Signup')}>
-                <Text style={styles.subLink}>Sign up</Text>
-            </Pressable>
+            <View style={[styles.buttonContainer, { borderColor: colors.secondary }]}>
+                <Pressable onPress={()=> navigation.navigate('Signup')} style={styles.button}>
+                    <Text style={styles.subLink}>Sign up</Text>
+                </Pressable>
+            </View>
         </View>
     </View>
   )
@@ -123,9 +120,24 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Roboto',
         color: colors.secondary,
+        padding: 20,
+    },
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        borderColor: 'transparent', 
+        borderWidth: 2,  
+        width: '20%',
+    },
+    button: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 8,
     },
     subLink: {
+        fontFamily: "Roboto",
         fontSize: 14,
         color: colors.primary,
-    }
+    },
 })

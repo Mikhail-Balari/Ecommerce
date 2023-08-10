@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Products from '../../Data/products.json'
 
 export const userSlice = createSlice({
     name: "User",
@@ -13,7 +12,7 @@ export const userSlice = createSlice({
         setUser: (state, action) => {
             state.value = action.payload
         },
-        logOut: (state) => {
+        signOut: (state) => {
             state.value = {
                 email: "",
                 idToken: "",
@@ -22,6 +21,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const {setUser, logOut} = userSlice.actions
+export const {setUser, signOut} = userSlice.actions
 
 export default userSlice.reducer
