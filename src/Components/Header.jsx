@@ -26,7 +26,7 @@ const Header = ({route, navigation}) => {
     <View style={styles.headerContainer}>
         <Text style={styles.headerText}>{title}</Text>
           {
-            route.name !== ("Home" && "Signup" && "Login") ? 
+            route.name !== "Home" && route.name !== "Signup" && route.name !== "Login" ? 
 
               <Pressable 
                 style={styles.pressable} 
